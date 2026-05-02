@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Momhed Profile</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #0b1320;
+  color: white;
+  overflow: hidden;
+}
+
+/* الخلفية المتحركة */
+.bg-animation {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 20%, rgba(30,60,114,0.5), transparent),
+              radial-gradient(circle at 80% 80%, rgba(42,82,152,0.5), transparent);
+  animation: moveBg 12s infinite alternate ease-in-out;
+}
+
+@keyframes moveBg {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.2) rotate(8deg); }
+}
+
+/* الكارت */
+.card {
+  position: relative;
+  width: 360px;
+  margin: 60px auto;
+  padding: 20px;
+  background: #111a2e;
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+/* الهيدر */
+.header {
+  text-align: center;
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid #3498db;
+  object-fit: cover;
+}
+
+.header h2 {
+  margin: 10px 0 5px;
+}
+
+.bio {
+  color: #aaa;
+}
+
+/* العناصر */
+.buttons {
+  margin-top: 20px;
+}
+
+.item {
+  background: #1c2742;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.item:hover {
+  transform: scale(1.05);
+  background: #24345c;
+}
+
+/* ألوان */
+.email { border-left: 5px solid orange; }
+.whatsapp { border-left: 5px solid green; }
+.facebook { border-left: 5px solid #1877f2; }
+.phone { border-left: 5px solid #00bcd4; }
+.service { border-left: 5px solid gold; }
+
+span {
+  font-weight: bold;
+  display: block;
+}
+
+p {
+  margin: 5px 0 0;
+  color: #ccc;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-animation"></div>
+
+<div class="card">
+  
+  <div class="header">
+    <img src="https://via.placeholder.com/150" class="avatar">
+    <h2>M / Momhed Mosthofe emam</h2>
+    <p class="bio">Tag bio</p>
+  </div>
+
+  <div class="buttons">
+
+    <div class="item email" onclick="openLink('mailto:example@email.com')">
+      <span>Email</span>
+      <p>example@email.com</p>
+    </div>
+
+    <div class="item whatsapp" onclick="openLink('https://wa.me/201000000000')">
+      <span>WhatsApp</span>
+      <p>+20 100 000 0000</p>
+    </div>
+
+    <div class="item facebook" onclick="openLink('https://facebook.com')">
+      <span>Facebook</span>
+      <p>facebook.com/momhed</p>
+    </div>
+
+    <div class="item phone" onclick="openLink('tel:+201000000000')">
+      <span>Phone</span>
+      <p>+20 100 000 0000</p>
+    </div>
+
+    <div class="item service">
+      <span>Maintenance</span>
+      <p>Available 24/7</p>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+// حركة الماوس للدواير
+document.addEventListener("mousemove", (e) => {
+  const bg = document.querySelector(".bg-animation");
+  let x = e.clientX / window.innerWidth;
+  let y = e.clientY / window.innerHeight;
+
+  bg.style.transform = `translate(${x * 20}px, ${y * 20}px) scale(1.1)`;
+});
+
+// فتح الروابط
+function openLink(link) {
+  window.open(link, "_blank");
+}
+</script>
+
+</body>
+</html>
